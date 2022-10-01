@@ -9,10 +9,12 @@ public class Game {
     int dealerScore = 0;
     private boolean dealerCheck = false;
     private boolean playerCheck = false;
+    private String playerName;
 
-    public Game(int cardWidth, int cardHeight) {
+    public Game(int cardWidth, int cardHeight, String playerName) {
         try {
             gameDeck = new Deck(cardHeight, cardWidth);
+            this.playerName = playerName;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -42,6 +44,16 @@ public class Game {
             return false;
         }
     }
+
+    public boolean isDealerHitting(Card card){//returns true if the dealer hits
+        if(this.dealerScore >= 17){
+            dealerCheck();
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
     
     public boolean checkDealerBusted(){
         if(dealerScore > 21){
@@ -63,7 +75,7 @@ public class Game {
         else if(this.checkDealerBusted()){
             return true;
         }
-        else if(this.playerScore > this.dealerScore){
+        else if((this.playerScore > this.dealerScore) && isGameOver()){
             return true;
         }
         else{
@@ -89,5 +101,17 @@ public class Game {
         else{
             return false;
         }
+    }
+
+    public int getPlayerScore(){
+        return this.playerScore;
+    }
+
+    public String getPlayerName(){
+        return this.playerName;
+    }
+
+    public int getDealerScore(){
+        return this.dealerScore;
     }
 }
