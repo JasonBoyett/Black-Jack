@@ -21,19 +21,39 @@ public class Game {
     }
 
     public void updatePlayerScore(Card playerFirstCard, Card playerSecondCard){
-        this.playerScore = playerFirstCard.getValue() + playerSecondCard.getValue();
+        if((playerFirstCard.getValue() == playerSecondCard.getValue()) && (playerFirstCard.getValue() == 11)) {//this if statement stops the player from busting by drawing two aces
+            this.playerScore = 12;
+        }
+        else{
+            this.playerScore = playerFirstCard.getValue() + playerSecondCard.getValue();
+        }
     }
 
     public void updatePlayerScore(Card drawnCard){
-        this.playerScore += drawnCard.getValue();
+        if((drawnCard.getValue() == 11) && playerScore < 10){//this if statement lets an ace be 1 if the player would bust with 11
+            this.playerScore ++;
+        }
+        else{
+            this.playerScore += drawnCard.getValue();
+        }
     }
 
     public void updateDealerScore(Card firstCard, Card secondCard) {
-        this.dealerScore = firstCard.getValue() + secondCard.getValue();
+        if((firstCard.getValue() == secondCard.getValue()) && (firstCard.getValue() == 11)) {//this if statement stops the dealer from busting by drawing two aces
+            this.playerScore = 12;
+        }
+        else{
+            this.dealerScore = firstCard.getValue() + secondCard.getValue();
+        }
     }
 
     public void updateDealerScore(Card drawnCard){
-        this.dealerScore += drawnCard.getValue();
+        if((drawnCard.getValue() == 11) && dealerScore < 10){//this if statement lets an ace be 1 if the dealer would bust with 11
+            this.dealerScore ++;
+        }
+        else{
+            this.dealerScore += drawnCard.getValue();
+        }
     }
 
     public boolean checkPlayerBusted(){
@@ -45,7 +65,7 @@ public class Game {
         }
     }
 
-    public boolean isDealerHitting(Card card){//returns true if the dealer hits
+    public boolean dealerWillHit(){//returns true if the dealer hits
         if(this.dealerScore >= 17){
             dealerCheck();
             return false;

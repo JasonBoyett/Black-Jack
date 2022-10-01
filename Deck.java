@@ -204,7 +204,7 @@ public class Deck {
         return card;
     }
 
-    private static ImageIcon scaleImageIcon(String path, int width, int height) {
+    public static ImageIcon scaleImageIcon(String path, int width, int height) {
         ImageIcon icon = new ImageIcon(path);// imports the image as an image icon
         Image image = icon.getImage();// casts the image as an Image object
         Image scaled = image.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);// scales the image

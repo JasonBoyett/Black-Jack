@@ -9,8 +9,8 @@ public class GamePanel extends JPanel{
     private Deck gameDeck;
     private Card playerCardFirst;
     private Card playerCardSecond;
-    private Card playerDrawnCard;
-    private Card dealerDrawnCard;
+    private Card playerDrawnCard = new Card("Joker", 0,"Jokers", Deck.scaleImageIcon("assets/joker.png", 1, 1), Deck.scaleImageIcon("assets/cardBack.png", 300, 200));
+    private Card dealerDrawnCard = new Card("Joker", 0,"Jokers", Deck.scaleImageIcon("assets/joker.png", 1, 1), Deck.scaleImageIcon("assets/cardBack.png", 300, 200));
     private Card dealerCardFirst;
     private Card dealerCardSecond;
     private HitButton hitButton;
@@ -18,6 +18,8 @@ public class GamePanel extends JPanel{
     private Game game;
     private PlayerFeild playerFeild;
     private DealerFeild dealerFeild;
+    private ImageIcon playerDrawnIcon = playerDrawnCard.getCardFace();
+    private ImageIcon dealerDrawnIcon = dealerDrawnCard.getCardFace();
 
     public GamePanel(Game game){
         this.game = game;
@@ -26,7 +28,7 @@ public class GamePanel extends JPanel{
         this.playerFeild.setBounds(500,275,300,100);
         this.gameDeck = game.getGameDeck();
         this.hitButton = new HitButton(this,game);
-        this.stayButton = new StayButton(game, playerFeild);
+        this.stayButton = new StayButton(game, this);
         this.setLayout(null);
         this.setBackground(new ColorUIResource(0, 102, 20));
         this.setPreferredSize(new DimensionUIResource(1280,720));
@@ -43,12 +45,15 @@ public class GamePanel extends JPanel{
         this.add(this.playerFeild);
         game.updateDealerScore(dealerCardFirst, dealerCardSecond);
         game.updatePlayerScore(playerCardFirst, playerCardSecond);
+        // this.dealerDrawnIcon.setImage(null);
+        // this.playerDrawnIcon.setImage(null);
         if(game.getPlayerScore() == 21){
-            playerFeild.setText(String.format("%s got a Black Jack!", game.getPlayerName()));
+            playerFeild.setText(String.format("Black Jack!", game.getPlayerName()));
             dealerFeild.update();
         }
         else if(game.getDealerScore() == 21){
-            dealerFeild.setText("Dealer Got a Black Jack");
+            dealerFeild.setText("Black Jack");
+            playerFeild.setText("Dealer wins");
         }
         else{
             playerFeild.update();
@@ -63,13 +68,10 @@ public class GamePanel extends JPanel{
         this.game.updatePlayerScore(this.playerDrawnCard);
     }
 
-    public void dealerHit(){
+    public Card dealerHit(){
         this.dealerDrawnCard = this.gameDeck.drawCard();
         this.game.updateDealerScore(dealerDrawnCard);
-        if(this.game.checkDealerBusted()){
-            //TODO set bust sign over dealer to visible
-            //TODO set text feild over player's cards to winner
-        }
+        return this.dealerDrawnCard;
     }
 
     // public void paint(java.awt.Graphics g) {
@@ -87,11 +89,17 @@ public class GamePanel extends JPanel{
         this.dealerCardSecond.getCardFace().paintIcon(this, g,50,50);
         this.playerCardFirst.getCardFace().paintIcon(this, g,500,370);
         this.playerCardSecond.getCardFace().paintIcon(this, g, 540, 400);
+        this.dealerDrawnIcon.paintIcon(this, g,100,10);
+        this.playerDrawnIcon.paintIcon(this, g, 590, 370);
     }
 
     public Card getPlayerDrawnCard() {
         this.playerDrawnCard = this.gameDeck.drawCard();
         return this.playerDrawnCard;
+    }
+
+    public Card getDealerDrawnCard() {
+        return this.dealerDrawnCard;
     }
 
     public PlayerFeild getPlayerFeild() {
@@ -100,5 +108,13 @@ public class GamePanel extends JPanel{
 
     public DealerFeild getDealerFeild() {
         return this.dealerFeild;
+    }
+
+    public ImageIcon getPlayerDrawnIcon() {
+        return this.playerDrawnIcon;
+    }
+
+    public ImageIcon getDealerDrawnIcon() {
+        return this.dealerDrawnIcon;
     }
 }

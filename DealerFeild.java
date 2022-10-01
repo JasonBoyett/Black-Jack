@@ -12,11 +12,15 @@ public class DealerFeild extends JTextField{
         this.setBounds(60,350,300,100);
         this.setOpaque(false);
         this.setBorder(null);
+        this.setEditable(false);
     }
 
     public void update(){
-        if(!(this.game.playerWon()) && this.game.isGameOver()){
+        if((!this.game.playerWon()) && this.game.isGameOver()){
             this.setText("Dealer wins.");
+        }
+        else if((this.game.playerWon())){
+            this.setText("Good game");
         }
         else{
             this.setText(String.format("Dealer's score: %d", game.getDealerScore()));

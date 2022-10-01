@@ -13,7 +13,7 @@ public class GUI extends JFrame{
     GamePanel gamePanel;
     public GUI(Game theGame) {
         this.gamePanel = new GamePanel(theGame);
-        this.setResizable(false);
+        this.setResizable(true);
         this.gameDeck = gameDeck;
         this.setVisible(true);
         this.add(gamePanel);
