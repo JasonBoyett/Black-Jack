@@ -9,6 +9,9 @@ public class GamePanel extends JPanel{
     private Deck gameDeck;
     private Card playerCardFirst;
     private Card playerCardSecond;
+    private Card playerCardThird;
+    private Card PlayerCardFourth;
+    private Card PlayerCardFifth;//playing five card charlie if the player or the dealer gets 5 cards without bsting they win
     private Card playerDrawnCard = new Card("Joker", 0,"Jokers", Deck.scaleImageIcon("assets/joker.png", 1, 1), Deck.scaleImageIcon("assets/cardBack.png", 300, 200));
     private Card dealerDrawnCard = new Card("Joker", 0,"Jokers", Deck.scaleImageIcon("assets/joker.png", 1, 1), Deck.scaleImageIcon("assets/cardBack.png", 300, 200));
     private Card dealerCardFirst;
