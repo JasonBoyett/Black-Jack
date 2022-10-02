@@ -9,6 +9,9 @@ public class GamePanel extends JPanel{
     private Deck gameDeck;
     private Card playerCardFirst;
     private Card playerCardSecond;
+    private Card playerCardThird;
+    private Card PlayerCardFourth;
+    private Card PlayerCardFifth;//playing five card charlie if the player or the dealer gets 5 cards without bsting they win
     private Card playerDrawnCard = new Card("Joker", 0,"Jokers", Deck.scaleImageIcon("assets/joker.png", 1, 1), Deck.scaleImageIcon("assets/cardBack.png", 300, 200));
     private Card dealerDrawnCard = new Card("Joker", 0,"Jokers", Deck.scaleImageIcon("assets/joker.png", 1, 1), Deck.scaleImageIcon("assets/cardBack.png", 300, 200));
     private Card dealerCardFirst;
@@ -43,10 +46,8 @@ public class GamePanel extends JPanel{
         this.add(this.stayButton);
         this.add(this.dealerFeild);
         this.add(this.playerFeild);
-        game.updateDealerScore(dealerCardFirst, dealerCardSecond);
-        game.updatePlayerScore(playerCardFirst, playerCardSecond);
-        // this.dealerDrawnIcon.setImage(null);
-        // this.playerDrawnIcon.setImage(null);
+        game.updateDealerScore();
+        game.updatePlayerScore();
         if(game.getPlayerScore() == 21){
             playerFeild.setText(String.format("Black Jack!", game.getPlayerName()));
             dealerFeild.update();
@@ -63,34 +64,21 @@ public class GamePanel extends JPanel{
 
     }
 
-    public void playerHit(){
-        this.playerDrawnCard = this.gameDeck.drawCard();
-        this.game.updatePlayerScore(this.playerDrawnCard);
-    }
-
-    public Card dealerHit(){
-        this.dealerDrawnCard = this.gameDeck.drawCard();
-        this.game.updateDealerScore(dealerDrawnCard);
-        return this.dealerDrawnCard;
-    }
-
-    // public void paint(java.awt.Graphics g) {
-	// 	super.paint(g);
-    //     Graphics2D playerCard = (Graphics2D) g;
-    //     playerCard.drawImage(this.dealerCardFirst.getCardFace().getImage(),10, 10,null);
-	// }
-
     public void paintComponent(java.awt.Graphics g) {
         super.paintComponent(g);
         this.hitButton.paintComponents(g);
         this.playerFeild.paintComponents(g);
         deck.paintIcon(this, g, 1070, 10);
-        this.dealerCardFirst.getCardFace().paintIcon(this, g,10,10);
-        this.dealerCardSecond.getCardFace().paintIcon(this, g,50,50);
-        this.playerCardFirst.getCardFace().paintIcon(this, g,500,370);
-        this.playerCardSecond.getCardFace().paintIcon(this, g, 540, 400);
-        this.dealerDrawnIcon.paintIcon(this, g,100,10);
-        this.playerDrawnIcon.paintIcon(this, g, 590, 370);
+        this.game.getDealerHand().get(0).getCardFace().paintIcon(this, g,10,10);
+        this.game.getDealerHand().get(1).getCardFace().paintIcon(this, g,50,50);
+        this.game.getDealerHand().get(2).getCardFace().paintIcon(this, g,100,10);
+        this.game.getDealerHand().get(3).getCardFace().paintIcon(this, g,150,50);
+        this.game.getDealerHand().get(4).getCardFace().paintIcon(this, g,200,10);
+        this.game.getPlayerHand().get(0).getCardFace().paintIcon(this, g,500,370);
+        this.game.getPlayerHand().get(1).getCardFace().paintIcon(this, g, 540, 400);
+        this.game.getPlayerHand().get(2).getCardFace().paintIcon(this, g, 590, 370);
+        this.game.getPlayerHand().get(3).getCardFace().paintIcon(this, g, 640, 400);
+        this.game.getPlayerHand().get(4).getCardFace().paintIcon(this, g, 690, 370);
     }
 
     public Card getPlayerDrawnCard() {
@@ -116,5 +104,9 @@ public class GamePanel extends JPanel{
 
     public ImageIcon getDealerDrawnIcon() {
         return this.dealerDrawnIcon;
+    }
+
+    public HitButton getHitButton() {
+        return this.hitButton;
     }
 }
