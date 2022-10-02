@@ -24,20 +24,22 @@ public class HitButton extends JButton{
         if (!this.game.isGameOver()) {
             game.getPlayerHand().add(cardsDrawnByPlayer, game.getGameDeck().drawCard());
             game.updatePlayerScore();
-            System.out.println(game.getPlayerScore());
+            this.panel.getCenterFeild().update();
             panel.repaint();
             cardsDrawnByPlayer ++;
             if (game.checkPlayerBusted()) {
                 this.panel.getDealerFeild().update();
                 this.panel.getPlayerFeild().update();
+                this.panel.getCenterFeild().update();
                 panel.repaint();
             }
             this.panel.getPlayerFeild().update();
-            this.panel.getPlayerDrawnIcon().setImage(panel.getPlayerDrawnCard().getCardFace().getImage());
+            this.panel.getCenterFeild().update();
             this.panel.repaint();
             if (game.dealerWillHit()) {
                 this.game.getDealerHand().add(cardsDrawnByPlayer, this.game.getGameDeck().drawCard());
                 this.panel.getDealerFeild().update();
+                this.panel.getCenterFeild().update();
                 panel.repaint();
             }
         }
@@ -57,5 +59,9 @@ public class HitButton extends JButton{
 
     public int getCardsDrawnByDealer(){
         return this.cardsDrawnByDealer;
+    }
+
+    public void setCardsDrawnByDealer(int cardsDrawnByDealer){
+        this.cardsDrawnByDealer = cardsDrawnByDealer;
     }
 }

@@ -16,11 +16,8 @@ public class DealerFeild extends JTextField{
     }
 
     public void update(){
-        if((!this.game.playerWon()) && this.game.isGameOver()){
-            this.setText("Dealer wins.");
-        }
-        else if((this.game.playerWon())){
-            this.setText("Good game");
+        if((this.game.getDealerScore() > 21)){
+            this.setText("Dealer busted");
         }
         else{
             this.setText(String.format("Dealer's score: %d", game.getDealerScore()));

@@ -16,6 +16,7 @@ public class GamePanel extends JPanel{
     private DealerFeild dealerFeild;
     private ImageIcon playerDrawnIcon = playerDrawnCard.getCardFace();
     private ImageIcon dealerDrawnIcon = dealerDrawnCard.getCardFace();
+    private CenterFeild centerFeild = new CenterFeild(this);
 
     public GamePanel(Game game){
         this.game = game;
@@ -37,17 +38,21 @@ public class GamePanel extends JPanel{
         this.add(this.playerFeild);
         game.updateDealerScore();
         game.updatePlayerScore();
+        this.add(centerFeild);
         if(game.getPlayerScore() == 21){
             playerFeild.setText(String.format("Black Jack!", game.getPlayerName()));
             dealerFeild.update();
+            centerFeild.update();
+
         }
         else if(game.getDealerScore() == 21){
             dealerFeild.setText("Black Jack");
-            playerFeild.setText("Dealer wins");
+            centerFeild.update();
         }
         else{
             playerFeild.update();
             dealerFeild.update();
+            centerFeild.update();
         }
 
 
@@ -97,5 +102,13 @@ public class GamePanel extends JPanel{
 
     public HitButton getHitButton() {
         return this.hitButton;
+    }
+
+    public Game getGame() {
+        return this.game;
+    }
+
+    public CenterFeild getCenterFeild() {
+        return this.centerFeild;
     }
 }

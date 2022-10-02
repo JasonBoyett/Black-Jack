@@ -7,12 +7,10 @@ public class StayButton extends JButton{
     Game game;
     Font font = new FontUIResource(Font.SERIF, CENTER, 20);
     GamePanel panel;
-    int cardsDrawnByDealer;
 
     public StayButton(Game game, GamePanel panel) {
         this.game = game;
         this.panel = panel;
-        this.cardsDrawnByDealer = this.panel.getHitButton().getCardsDrawnByDealer();
         this.setFont(font);
         this.setText("I'll Stay");
         this.addActionListener(e -> press());
@@ -23,15 +21,18 @@ public class StayButton extends JButton{
         panel.getPlayerFeild().update();
         panel.getDealerFeild().update();
         if(game.dealerWillHit()){
-
+            panel.repaint();
         }
         while(this.game.dealerWillHit()){
-            this.game.getDealerHand().add(cardsDrawnByDealer, game.getGameDeck().drawCard());
+            this.game.getDealerHand().add(this.panel.getHitButton().getCardsDrawnByDealer(), game.getGameDeck().drawCard());
+            this.panel.getHitButton().setCardsDrawnByDealer(this.panel.getHitButton().getCardsDrawnByDealer() + 1);
             this.game.updateDealerScore();
+            this.panel.getCenterFeild().update();
             panel.repaint();
         }
         panel.getPlayerFeild().update();
         panel.getDealerFeild().update();
+        panel.getCenterFeild().update();
         
     }
 
