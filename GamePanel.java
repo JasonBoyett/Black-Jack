@@ -7,15 +7,8 @@ public class GamePanel extends JPanel{
     
     private ImageIcon deck;
     private Deck gameDeck;
-    private Card playerCardFirst;
-    private Card playerCardSecond;
-    private Card playerCardThird;
-    private Card PlayerCardFourth;
-    private Card PlayerCardFifth;//playing five card charlie if the player or the dealer gets 5 cards without bsting they win
     private Card playerDrawnCard = new Card("Joker", 0,"Jokers", Deck.scaleImageIcon("assets/joker.png", 1, 1), Deck.scaleImageIcon("assets/cardBack.png", 300, 200));
     private Card dealerDrawnCard = new Card("Joker", 0,"Jokers", Deck.scaleImageIcon("assets/joker.png", 1, 1), Deck.scaleImageIcon("assets/cardBack.png", 300, 200));
-    private Card dealerCardFirst;
-    private Card dealerCardSecond;
     private HitButton hitButton;
     private StayButton stayButton;
     private Game game;
@@ -36,10 +29,6 @@ public class GamePanel extends JPanel{
         this.setBackground(new ColorUIResource(0, 102, 20));
         this.setPreferredSize(new DimensionUIResource(1280,720));
         deck = gameDeck.getBackImage();
-        this.playerCardFirst = gameDeck.drawCard();
-        this.playerCardSecond = gameDeck.drawCard();
-        this.dealerCardFirst = gameDeck.drawCard();
-        this.dealerCardSecond = gameDeck.drawCard();
         this.hitButton.setBounds(1075,325,150,50);
         this.stayButton.setBounds(1075,385, 150, 50);
         this.add(this.hitButton);

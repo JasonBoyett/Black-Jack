@@ -1,9 +1,7 @@
 import java.awt.Font;
 
 import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.plaf.FontUIResource;
-import java.awt.Graphics;
 
 
 public class HitButton extends JButton{

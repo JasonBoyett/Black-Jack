@@ -14,9 +14,9 @@ public class Game {
     private ArrayList<Card> playerHand = new ArrayList<>(5);
     private ArrayList<Card> dealerHand = new ArrayList<>(5);
 
-    public Game(int cardWidth, int cardHeight, String playerName) {
+    public Game(String playerName) {
         try {
-            this.gameDeck = new Deck(cardHeight, cardWidth);
+            this.gameDeck = new Deck();
             this.playerName = playerName;
             populateHands();
             playerHand.add(0,this.gameDeck.drawCard());

@@ -7,63 +7,63 @@ import javax.swing.ImageIcon;
 
 public class Deck {
 
-    private int pixelWidth;
-    private int pixelHeight;
+    private final int PIXEL_WIDTH = 200;
+    private final int PIXEL_HEIGHT = 300;
     private ImageIcon back;
     private ArrayList<Card> cards = new ArrayList<Card>();
 
-    Card aceOfSpades;
-    Card kingOfSpades;
-    Card queenOfSpades;
-    Card jackOfSpades;
-    Card tenOfSpades;
-    Card nineOfSpades;
-    Card eightOfSpades;
-    Card sevenOfSpades;
-    Card sixOfSpades;
-    Card fiveOfSpades;
-    Card fourOfSpades;
-    Card threeOfSpades;
-    Card twoOfSpades;
-    Card aceOfClubs;
-    Card kingOfClubs;
-    Card queenOfClubs;
-    Card jackOfClubs;
-    Card tenOfClubs;
-    Card nineOfClubs;
-    Card eightOfClubs;
-    Card sevenOfClubs;
-    Card sixOfClubs;
-    Card fiveOfClubs;
-    Card fourOfClubs;
-    Card threeOfClubs;
-    Card twoOfClubs;
-    Card aceOfHearts;
-    Card kingOfHearts;
-    Card queenOfHearts;
-    Card jackOfHearts;
-    Card tenOfHearts;
-    Card nineOfHearts;
-    Card eightOfHearts;
-    Card sevenOfHearts;
-    Card sixOfHearts;
-    Card fiveOfHearts;
-    Card fourOfHearts;
-    Card threeOfHearts;
-    Card twoOfHearts;
-    Card aceOfDiamonds;
-    Card kingOfDiamonds;
-    Card queenOfDiamonds;
-    Card jackOfDiamonds;
-    Card tenOfDiamonds;
-    Card nineOfDiamonds;
-    Card eightOfDiamonds;
-    Card sevenOfDiamonds;
-    Card sixOfDiamonds;
-    Card fiveOfDiamonds;
-    Card fourOfDiamonds;
-    Card threeOfDiamonds;
-    Card twoOfDiamonds;
+    Card aceOfSpades = new Card("Spades", 11, "Ace", scaleImageIcon("assets/aceOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card kingOfSpades = new Card("Spades", 10, "King", scaleImageIcon("assets/kingOfSpades", this.PIXEL_WIDTH, this.PIXEL_WIDTH), this.back);
+    Card queenOfSpades = new Card("Spades", 10, "Queen", scaleImageIcon("assets/queenOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card jackOfSpades = new Card("Spades", 10, "Jack", scaleImageIcon("assets/jackOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card tenOfSpades = new Card("Spades", 10, "Ten", scaleImageIcon("assets/tenOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card nineOfSpades = new Card("Spades", 9, "Nine", scaleImageIcon("assets/nineOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card eightOfSpades = new Card("Spades", 8, "Eight", scaleImageIcon("assets/eightOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card sevenOfSpades = new Card("Spades", 7, "Seven", scaleImageIcon("assets/sevenOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card sixOfSpades = new Card("Spades", 6, "Six", scaleImageIcon("assets/sixOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card fiveOfSpades = new Card("Spades", 5, "Five", scaleImageIcon("assets/fiveOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card fourOfSpades = new Card("Spades", 4, "Four", scaleImageIcon("assets/fourOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card threeOfSpades = new Card("Spades", 3, "Three", scaleImageIcon("assets/threeOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card twoOfSpades = new Card("Spades", 2, "Two", scaleImageIcon("assets/twoOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card aceOfClubs = new Card("Clubs", 11, "Ace", scaleImageIcon("assets/aceOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card kingOfClubs = new Card("Clubs", 10, "King", scaleImageIcon("assets/kingOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card queenOfClubs = new Card("Clubs", 10,"Queen", scaleImageIcon("assets/queenOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card jackOfClubs = new Card("Clubs", 10,"Jack", scaleImageIcon("assets/jackOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card tenOfClubs = new Card("Clubs", 10, "Ten", scaleImageIcon("assets/tenOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card nineOfClubs = new Card("Clubs", 9,"Nine", scaleImageIcon("assets/nineOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card eightOfClubs = new Card("Clubs", 8, "Eight", scaleImageIcon("assets/eightOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card sevenOfClubs = new Card("Clubs", 7, "Seven", scaleImageIcon("assets/sevenOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card sixOfClubs = new Card("Clubs", 6, "Six", scaleImageIcon("assets/sixOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card fiveOfClubs = new Card("Clubs", 5, "Five", scaleImageIcon("assets/fiveOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card fourOfClubs = new Card("Clubs", 4, "Four", scaleImageIcon("assets/fourOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card threeOfClubs = new Card("Clubs", 3, "Three", scaleImageIcon("assets/threeOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card twoOfClubs = new Card("Clubs", 2, "Two", scaleImageIcon("assets/twoOfClubs.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card aceOfHearts = new Card("Hearts", 11, "Ace", scaleImageIcon("assets/aceOfHearts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card kingOfHearts = new Card("Hearts", 10, "King", scaleImageIcon("assets/kingOfHearts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card queenOfHearts = new Card("Hearts", 10, "Queen", scaleImageIcon("assets/queenOfHearts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card jackOfHearts = new Card("Hearts", 10, "Jack", scaleImageIcon("assets/jackOfHearts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card tenOfHearts = new Card("Hearts", 10, "Ten", scaleImageIcon("assets/tenOfHEarts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card nineOfHearts = new Card("Hearts", 9, "Nine", scaleImageIcon("assets/nineOfHearts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card eightOfHearts = new Card("Hearts", 8, "Eight", scaleImageIcon("assets/eightOfHearts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card sevenOfHearts = new Card("Hearts", 7, "Seven", scaleImageIcon("assets/sevenOfHearts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card sixOfHearts = new Card("Hearts", 6, "Six", scaleImageIcon("assets/sixOfHearts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card fiveOfHearts = new Card("Hearts", 5, "Five", scaleImageIcon("assets/fiveOfHearts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card fourOfHearts = new Card("Hearts", 4, "Four", scaleImageIcon("assets/fourOfHearts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card threeOfHearts = new Card("Hearts", 3, "Three", scaleImageIcon("assets/threeOfHearts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card twoOfHearts = new Card("Hearts", 2, "Two", scaleImageIcon("assets/twoOfHearts.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card aceOfDiamonds = new Card("Diamonds", 11, "Ace", scaleImageIcon("assets/aceOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card kingOfDiamonds = new Card("Diamonds", 10, "King", scaleImageIcon("assets/kingOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card queenOfDiamonds = new Card("Diamonds", 10, "Queen", scaleImageIcon("assets/queenOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card jackOfDiamonds = new Card("Diamonds", 10, "Jack", scaleImageIcon("assets/jackOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card tenOfDiamonds = new Card("Diamonds", 10, "Ten", scaleImageIcon("assets/tenOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card nineOfDiamonds = new Card("Diamonds", 9, "Nine", scaleImageIcon("assets/nineOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card eightOfDiamonds = new Card("Diamonds", 8, "Eight", scaleImageIcon("assets/eightOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card sevenOfDiamonds = new Card("Diamonds", 7, "Seven", scaleImageIcon("assets/sevenOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card sixOfDiamonds = new Card("Diamonds", 6, "Six", scaleImageIcon("assets/sixOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card fiveOfDiamonds = new Card("Diamonds", 5, "Five", scaleImageIcon("assets/fiveOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card fourOfDiamonds = new Card("Diamonds", 4, "Four", scaleImageIcon("assets/fourOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card threeOfDiamonds = new Card("Diamonds", 3, "Three", scaleImageIcon("assets/threeOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
+    Card twoOfDiamonds = new Card("Diamonds", 2, "Two", scaleImageIcon("assets/twoOfDiamonds.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
 
     private void populateDeck(){//adds all the cards to the cards array list
         this.cards.add(aceOfDiamonds);
@@ -118,68 +118,12 @@ public class Deck {
         this.cards.add(fourOfSpades);
         this.cards.add(threeOfSpades);
         this.cards.add(twoOfSpades);
+        Collections.shuffle(this.cards);
         }
 
-    public Deck(int pixelHeight, int pixelWidth) throws FileNotFoundException{
-        this.pixelHeight = pixelHeight;
-        this.pixelWidth = pixelWidth;
-
-        this.aceOfSpades = new Card("Spades", 11, "Ace", scaleImageIcon("assets/aceOfSpades.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.kingOfSpades = new Card("Spades", 10, "King", scaleImageIcon("assets/kingOfSpades", this.pixelWidth, this.pixelWidth), this.back);
-        this.queenOfSpades = new Card("Spades", 10, "Queen", scaleImageIcon("assets/queenOfSpades.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.jackOfSpades = new Card("Spades", 10, "Jack", scaleImageIcon("assets/jackOfSpades.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.tenOfSpades = new Card("Spades", 10, "Ten", scaleImageIcon("assets/tenOfSpades.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.nineOfSpades = new Card("Spades", 9, "Nine", scaleImageIcon("assets/nineOfSpades.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.eightOfSpades = new Card("Spades", 8, "Eight", scaleImageIcon("assets/eightOfSpades.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.sevenOfSpades = new Card("Spades", 7, "Seven", scaleImageIcon("assets/sevenOfSpades.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.sixOfSpades = new Card("Spades", 6, "Six", scaleImageIcon("assets/sixOfSpades.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.fiveOfSpades = new Card("Spades", 5, "Five", scaleImageIcon("assets/fiveOfSpades.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.fourOfSpades = new Card("Spades", 4, "Four", scaleImageIcon("assets/fourOfSpades.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.threeOfSpades = new Card("Spades", 3, "Three", scaleImageIcon("assets/threeOfSpades.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.twoOfSpades = new Card("Spades", 2, "Two", scaleImageIcon("assets/twoOfSpades.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.aceOfClubs = new Card("Clubs", 11, "Ace", scaleImageIcon("assets/aceOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.kingOfClubs = new Card("Clubs", 10, "King", scaleImageIcon("assets/kingOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.queenOfClubs = new Card("Clubs", 10,"Queen", scaleImageIcon("assets/queenOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.jackOfClubs = new Card("Clubs", 10,"Jack", scaleImageIcon("assets/jackOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.tenOfClubs = new Card("Clubs", 10, "Ten", scaleImageIcon("assets/tenOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.nineOfClubs = new Card("Clubs", 9,"Nine", scaleImageIcon("assets/nineOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.eightOfClubs = new Card("Clubs", 8, "Eight", scaleImageIcon("assets/eightOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.sevenOfClubs = new Card("Clubs", 7, "Seven", scaleImageIcon("assets/sevenOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.sixOfClubs = new Card("Clubs", 6, "Six", scaleImageIcon("assets/sixOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.fiveOfClubs = new Card("Clubs", 5, "Five", scaleImageIcon("assets/fiveOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.fourOfClubs = new Card("Clubs", 4, "Four", scaleImageIcon("assets/fourOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.threeOfClubs = new Card("Clubs", 3, "Three", scaleImageIcon("assets/threeOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.twoOfClubs = new Card("Clubs", 2, "Two", scaleImageIcon("assets/twoOfClubs.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.aceOfHearts = new Card("Hearts", 11, "Ace", scaleImageIcon("assets/aceOfHearts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.kingOfHearts = new Card("Hearts", 10, "King", scaleImageIcon("assets/kingOfHearts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.queenOfHearts = new Card("Hearts", 10, "Queen", scaleImageIcon("assets/queenOfHearts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.jackOfHearts = new Card("Hearts", 10, "Jack", scaleImageIcon("assets/jackOfHearts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.tenOfHearts = new Card("Hearts", 10, "Ten", scaleImageIcon("assets/tenOfHEarts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.nineOfHearts = new Card("Hearts", 9, "Nine", scaleImageIcon("assets/nineOfHearts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.eightOfHearts = new Card("Hearts", 8, "Eight", scaleImageIcon("assets/eightOfHearts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.sevenOfHearts = new Card("Hearts", 7, "Seven", scaleImageIcon("assets/sevenOfHearts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.sixOfHearts = new Card("Hearts", 6, "Six", scaleImageIcon("assets/sixOfHearts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.fiveOfHearts = new Card("Hearts", 5, "Five", scaleImageIcon("assets/fiveOfHearts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.fourOfHearts = new Card("Hearts", 4, "Four", scaleImageIcon("assets/fourOfHearts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.threeOfHearts = new Card("Hearts", 3, "Three", scaleImageIcon("assets/threeOfHearts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.twoOfHearts = new Card("Hearts", 2, "Two", scaleImageIcon("assets/twoOfHearts.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.aceOfDiamonds = new Card("Diamonds", 11, "Ace", scaleImageIcon("assets/aceOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.kingOfDiamonds = new Card("Diamonds", 10, "King", scaleImageIcon("assets/kingOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.queenOfDiamonds = new Card("Diamonds", 10, "Queen", scaleImageIcon("assets/queenOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.jackOfDiamonds = new Card("Diamonds", 10, "Jack", scaleImageIcon("assets/jackOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.tenOfDiamonds = new Card("Diamonds", 10, "Ten", scaleImageIcon("assets/tenOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.nineOfDiamonds = new Card("Diamonds", 9, "Nine", scaleImageIcon("assets/nineOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.eightOfDiamonds = new Card("Diamonds", 8, "Eight", scaleImageIcon("assets/eightOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.sevenOfDiamonds = new Card("Diamonds", 7, "Seven", scaleImageIcon("assets/sevenOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.sixOfDiamonds = new Card("Diamonds", 6, "Six", scaleImageIcon("assets/sixOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.fiveOfDiamonds = new Card("Diamonds", 5, "Five", scaleImageIcon("assets/fiveOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.fourOfDiamonds = new Card("Diamonds", 4, "Four", scaleImageIcon("assets/fourOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.threeOfDiamonds = new Card("Diamonds", 3, "Three", scaleImageIcon("assets/threeOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
-        this.twoOfDiamonds = new Card("Diamonds", 2, "Two", scaleImageIcon("assets/twoOfDiamonds.png", this.pixelWidth, this.pixelHeight), this.back);
+    public Deck() throws FileNotFoundException{
         this.populateDeck();
-        Collections.shuffle(this.cards);
-        this.back = scaleImageIcon("assets/cardBack.png", this.pixelWidth, this.pixelHeight);
-
+        this.back = scaleImageIcon("assets/cardBack.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT);
     }
 
     public ArrayList<Card> getCards(){
@@ -191,11 +135,11 @@ public class Deck {
     }
 
     public int getPixelWidth(){
-        return this.pixelWidth;
+        return this.PIXEL_WIDTH;
     }
 
     public int getPixelHeight() {
-        return this.pixelHeight;
+        return this.PIXEL_HEIGHT;
     }
 
     public Card drawCard(){

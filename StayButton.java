@@ -2,8 +2,6 @@ import javax.swing.JButton;
 import javax.swing.plaf.FontUIResource;
 
 import java.awt.Font;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class StayButton extends JButton{
     Game game;
