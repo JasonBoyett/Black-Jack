@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
@@ -10,51 +11,47 @@ public class Game {
     private boolean dealerCheck = false;
     private boolean playerCheck = false;
     private String playerName;
+    private ArrayList<Card> playerHand = new ArrayList<>(5);
+    private ArrayList<Card> dealerHand = new ArrayList<>(5);
 
     public Game(int cardWidth, int cardHeight, String playerName) {
         try {
-            gameDeck = new Deck(cardHeight, cardWidth);
+            this.gameDeck = new Deck(cardHeight, cardWidth);
             this.playerName = playerName;
+            populateHands();
+            playerHand.add(0,this.gameDeck.drawCard());
+            dealerHand.add(0,this.gameDeck.drawCard());
+            playerHand.add(1,this.gameDeck.drawCard());
+            dealerHand.add(1,this.gameDeck.drawCard());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public void updatePlayerScore(Card playerFirstCard, Card playerSecondCard){
-        if((playerFirstCard.getValue() == playerSecondCard.getValue()) && (playerFirstCard.getValue() == 11)) {//this if statement stops the player from busting by drawing two aces
-            this.playerScore = 12;
-        }
-        else{
-            this.playerScore = playerFirstCard.getValue() + playerSecondCard.getValue();
-        }
-    }
-
-    public void updatePlayerScore(Card drawnCard){
-        if((drawnCard.getValue() == 11) && playerScore < 10){//this if statement lets an ace be 1 if the player would bust with 11
-            this.playerScore ++;
-        }
-        else{
-            this.playerScore += drawnCard.getValue();
+    public void updatePlayerScore(){
+        this.playerScore = 0;
+        for(int i = 0; i < this.playerHand.size(); i++){
+            if((this.playerHand.get(i).getValue() == 11) && this.playerScore > 10){
+                this.playerScore ++;
+            }
+            else{
+                this.playerScore += playerHand.get(i).getValue();
+            }
         }
     }
 
-    public void updateDealerScore(Card firstCard, Card secondCard) {
-        if((firstCard.getValue() == secondCard.getValue()) && (firstCard.getValue() == 11)) {//this if statement stops the dealer from busting by drawing two aces
-            this.playerScore = 12;
-        }
-        else{
-            this.dealerScore = firstCard.getValue() + secondCard.getValue();
+    public void updateDealerScore() {
+        this.playerScore = 0;
+        for(int i = 0; i < dealerHand.size(); i++) {
+            if((this.dealerHand.get(i).getValue() == 11) && this.dealerScore >10){
+                this.dealerScore ++;
+            }
+            else{
+                this.dealerScore += dealerHand.get(i).getValue();
+            }
         }
     }
 
-    public void updateDealerScore(Card drawnCard){
-        if((drawnCard.getValue() == 11) && dealerScore < 10){//this if statement lets an ace be 1 if the dealer would bust with 11
-            this.dealerScore ++;
-        }
-        else{
-            this.dealerScore += drawnCard.getValue();
-        }
-    }
 
     public boolean checkPlayerBusted(){
         if(playerScore > 21){
@@ -92,6 +89,12 @@ public class Game {
         if(this.checkPlayerBusted()){
             return false;
         }
+        else if((!this.checkDealerBusted()) && (this.dealerHand.get(4).getValue() != 0)){
+            return false;
+        }
+        else if((!this.checkPlayerBusted()) && (this.playerHand.get(4).getValue() != 0)){
+            return true;
+        }
         else if(this.checkDealerBusted()){
             return true;
         }
@@ -123,6 +126,19 @@ public class Game {
         }
     }
 
+    private void populateHands(){
+        this.playerHand.add(0,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.playerHand.add(1,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.playerHand.add(2,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.playerHand.add(3,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.playerHand.add(4,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(0,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(1,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(2,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(3,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(4,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+    }
+
     public int getPlayerScore(){
         return this.playerScore;
     }
@@ -133,5 +149,12 @@ public class Game {
 
     public int getDealerScore(){
         return this.dealerScore;
+    }
+    public ArrayList<Card> getDealerHand(){
+        return this.dealerHand;
+    }
+
+    public ArrayList<Card> getPlayerHand(){
+        return this.playerHand;
     }
 }

@@ -11,6 +11,8 @@ public class HitButton extends JButton{
     Game game;
     Font font = new FontUIResource(Font.SERIF, CENTER, 20);
     int incramentor = 0;
+    int cardsDrawnByPlayer = 2;
+    int cardsDrawnByDealer = 2;
     public HitButton(GamePanel panel, Game game){
         this.panel = panel;
         this.game = game;
@@ -22,23 +24,28 @@ public class HitButton extends JButton{
     
     private void press() {
         if (!this.game.isGameOver()) {
-            game.updatePlayerScore(panel.getPlayerDrawnCard());
+            game.getPlayerHand().add(cardsDrawnByPlayer, game.getGameDeck().drawCard());
+            game.updatePlayerScore();
+            System.out.println(game.getPlayerScore());
+            panel.repaint();
+            cardsDrawnByPlayer ++;
             if (game.checkPlayerBusted()) {
                 this.panel.getDealerFeild().update();
                 this.panel.getPlayerFeild().update();
+                panel.repaint();
             }
             this.panel.getPlayerFeild().update();
             this.panel.getPlayerDrawnIcon().setImage(panel.getPlayerDrawnCard().getCardFace().getImage());
             this.panel.repaint();
             if (game.dealerWillHit()) {
-                this.game.updateDealerScore(panel.dealerHit());
+                this.game.getDealerHand().add(cardsDrawnByPlayer, this.game.getGameDeck().drawCard());
                 this.panel.getDealerFeild().update();
-                this.panel.getDealerDrawnIcon().setImage(panel.getDealerDrawnCard().getCardFace().getImage());
+                panel.repaint();
             }
         }
 
 
-        if(this.game.isGameOver() && incramentor == 0){
+        else if(this.game.isGameOver() && incramentor == 0){
             incramentor ++;
         }
         else if(this.game.isGameOver() && incramentor != 0){
@@ -48,5 +55,9 @@ public class HitButton extends JButton{
             game.dealerCheck();
             
         }
+    }
+
+    public int getCardsDrawnByDealer(){
+        return this.cardsDrawnByDealer;
     }
 }
