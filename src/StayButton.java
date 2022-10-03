@@ -1,4 +1,5 @@
 package src;
+
 /*
  * Jason Boyett - jaboye2448
  * CIT 4423 01
@@ -10,7 +11,7 @@ import javax.swing.plaf.FontUIResource;
 
 import java.awt.Font;
 
-public class StayButton extends JButton{
+public class StayButton extends JButton {
     Game game;
     Font font = new FontUIResource(Font.SERIF, CENTER, 20);
     GamePanel panel;
@@ -25,7 +26,7 @@ public class StayButton extends JButton{
     }
 
     private void press() {
-            this.cardsDrawnByDealer = this.panel.getHitButton().getCardsDrawnByDealer();
+        this.cardsDrawnByDealer = this.panel.getHitButton().getCardsDrawnByDealer();
         if (!this.panel.getGame().isGameOver()) {
             this.game.playerChecks();
             panel.getPlayerFeild().update();
@@ -34,7 +35,7 @@ public class StayButton extends JButton{
                 panel.repaint();
             }
             while (this.game.dealerWillHit()) {
-                this.game.getDealerHand().add(this.cardsDrawnByDealer,game.getGameDeck().drawCard());
+                this.game.getDealerHand().add(this.cardsDrawnByDealer, game.getGameDeck().drawCard());
                 this.cardsDrawnByDealer++;
                 this.game.updateDealerScore();
                 this.panel.getCenterFeild().update();
@@ -43,8 +44,7 @@ public class StayButton extends JButton{
             panel.getPlayerFeild().update();
             panel.getDealerFeild().update();
             panel.getCenterFeild().update();
-        }
-        else if (this.panel.getGame().isGameOver()){//reset the state of the GUI
+        } else if (this.panel.getGame().isGameOver()) {// reset the state of the GUI
             this.panel.getGame().newHand();
             this.panel.getHitButton().setCardsDrawnByDealer(2);
             this.panel.getHitButton().setCardsDrawnByPlayer(2);

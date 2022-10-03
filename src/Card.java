@@ -5,9 +5,10 @@
 * mac OS
 */
 package src;
+
 import javax.swing.ImageIcon;
 
-public class Card{
+public class Card {
     private String suite;
     private int value;
     private String type;
@@ -41,8 +42,8 @@ public class Card{
     public String getName() {
         return String.format("%s of %s", this.type, this.suite);
     }
-    
-    public ImageIcon getCardBack(){
+
+    public ImageIcon getCardBack() {
         return cardBack;
     }
 

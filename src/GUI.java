@@ -5,10 +5,13 @@
 * mac OS
 */
 package src;
+
 import javax.swing.JFrame;
-public class GUI extends JFrame{
+
+public class GUI extends JFrame {
 
     static GamePanel gamePanel;
+
     public GUI(Game theGame) {
         GUI.gamePanel = new GamePanel(theGame);
         this.setResizable(false);
