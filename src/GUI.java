@@ -10,8 +10,8 @@ public class GUI extends JFrame{
 
     static GamePanel gamePanel;
     public GUI(Game theGame) {
-        this.gamePanel = new GamePanel(theGame);
-        this.setResizable(true);
+        GUI.gamePanel = new GamePanel(theGame);
+        this.setResizable(false);
         this.setVisible(true);
         this.add(gamePanel);
         this.pack();

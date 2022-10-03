@@ -45,7 +45,7 @@ public class StayButton extends JButton{
             panel.getCenterFeild().update();
         }
         else if (this.panel.getGame().isGameOver()){//reset the state of the GUI
-            this.panel.getGame().newGame();
+            this.panel.getGame().newHand();
             this.panel.getHitButton().setCardsDrawnByDealer(2);
             this.panel.getHitButton().setCardsDrawnByPlayer(2);
             GUI.gamePanel = new GamePanel(this.panel.getGame());

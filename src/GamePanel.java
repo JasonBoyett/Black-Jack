@@ -13,15 +13,12 @@ public class GamePanel extends JPanel{
     
     private ImageIcon deck;
     private Deck gameDeck;
-    private Card playerDrawnCard = new Card("Joker", 0,"Jokers", Deck.scaleImageIcon("assets/joker.png", 1, 1), Deck.scaleImageIcon("assets/cardBack.png", 300, 200));
-    private Card dealerDrawnCard = new Card("Joker", 0,"Jokers", Deck.scaleImageIcon("assets/joker.png", 1, 1), Deck.scaleImageIcon("assets/cardBack.png", 300, 200));
+
     private HitButton hitButton;
     private StayButton stayButton;
     private Game game;
     private PlayerFeild playerFeild;
     private DealerFeild dealerFeild;
-    private ImageIcon playerDrawnIcon = playerDrawnCard.getCardFace();
-    private ImageIcon dealerDrawnIcon = dealerDrawnCard.getCardFace();
     private CenterFeild centerFeild = new CenterFeild(this);
 
     public GamePanel(Game game){
@@ -45,22 +42,9 @@ public class GamePanel extends JPanel{
         game.updateDealerScore();
         game.updatePlayerScore();
         this.add(centerFeild);
-        // if(game.getPlayerScore() == 21){
-        //     playerFeild.update();
-        //     dealerFeild.update();
-        //     centerFeild.update();
-
-        // }
-        // else if(game.getDealerScore() == 21){
-        //     playerFeild.update();
-        //     dealerFeild.update();
-        //     centerFeild.update();
-        // }
-        // else{
-            playerFeild.update();
-            dealerFeild.update();
-            centerFeild.update();
-        //}
+        playerFeild.update();
+        dealerFeild.update();
+        centerFeild.update();
     }
 
     public void paintComponent(java.awt.Graphics g) {
@@ -80,29 +64,12 @@ public class GamePanel extends JPanel{
         this.game.getPlayerHand().get(4).getCardFace().paintIcon(this, g, 690, 370);
     }
 
-    public Card getPlayerDrawnCard() {
-        this.playerDrawnCard = this.gameDeck.drawCard();
-        return this.playerDrawnCard;
-    }
-
-    public Card getDealerDrawnCard() {
-        return this.dealerDrawnCard;
-    }
-
     public PlayerFeild getPlayerFeild() {
         return this.playerFeild;
     }
 
     public DealerFeild getDealerFeild() {
         return this.dealerFeild;
-    }
-
-    public ImageIcon getPlayerDrawnIcon() {
-        return this.playerDrawnIcon;
-    }
-
-    public ImageIcon getDealerDrawnIcon() {
-        return this.dealerDrawnIcon;
     }
 
     public HitButton getHitButton() {

@@ -1,10 +1,10 @@
-package src;
 /*
- * Jason Boyett - jaboye2448
- * CIT 4423 01
- * October 2, 2022
- * mac OS
- */
+* Jason Boyett - jaboye2448
+* CIT 4423 01
+* October 2, 2022
+* mac OS
+*/
+package test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -12,6 +12,9 @@ import static org.junit.Assert.assertTrue;
 import javax.swing.ImageIcon;
 
 import org.junit.Test;
+
+import src.Card;
+import src.Game;
 
 public class TestGame {//note that the player's score is calculated based on the total value of the cards in the player's hand not on the types of cards so the fact that all the cards in the test hands are aces should not affect anything.
     @Test

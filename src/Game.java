@@ -1,20 +1,17 @@
-package src;
 /*
- * Jason Boyett - jaboye2448
- * CIT 4423 01
- * October 2, 2022
- * mac OS
- */
+* Jason Boyett - jaboye2448
+* CIT 4423 01
+* October 2, 2022
+* mac OS
+*/
+package src;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
-
 public class Game {
-    Deck gameDeck;
-    JFrame gameFrame;
-    int playerScore = 0;
-    int dealerScore = 0;
+    private Deck gameDeck;
+    private int playerScore = 0;
+    private int dealerScore = 0;
     private boolean dealerCheck = false;
     private boolean playerCheck = false;
     private String playerName;
@@ -35,7 +32,7 @@ public class Game {
         }
     }
 
-    public void newGame() {//this polymorphic constructor is called to start a new game with the same deck
+    public void newHand() {//this polymorphic constructor is called to start a new game with the same deck
         try {
             if(this.gameDeck.getCards().size() < 10){//in case the deck is no longer big enough to support a full game
                 this.gameDeck = new Deck();
@@ -176,16 +173,6 @@ public class Game {
         this.playerHand.add(2,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.playerHand.add(3,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.playerHand.add(4,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
-        this.dealerHand.add(0,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
-        this.dealerHand.add(1,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
-        this.dealerHand.add(2,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
-        this.dealerHand.add(3,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
-        this.dealerHand.add(4,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
-        this.dealerHand.add(0,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
-        this.dealerHand.add(1,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
-        this.dealerHand.add(2,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
-        this.dealerHand.add(3,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
-        this.dealerHand.add(4,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.dealerHand.add(0,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.dealerHand.add(1,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.dealerHand.add(2,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));

@@ -1,10 +1,10 @@
-package src;
 /*
- * Jason Boyett - jaboye2448
- * CIT 4423 01
- * October 2, 2022
- * mac OS
- */
+* Jason Boyett - jaboye2448
+* CIT 4423 01
+* October 2, 2022
+* mac OS
+*/
+package src;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.plaf.FontUIResource;
@@ -29,6 +29,7 @@ public class HitButton extends JButton{
     private void press() {
         if (!this.game.isGameOver()) {
             game.getPlayerHand().add(cardsDrawnByPlayer, game.getGameDeck().drawCard());
+            this.game.getPlayerHand().remove(5);
             game.updatePlayerScore();
             this.panel.getCenterFeild().update();
             panel.repaint();
