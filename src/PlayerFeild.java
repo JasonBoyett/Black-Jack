@@ -21,7 +21,10 @@ public class PlayerFeild extends JTextField{
     }
 
     public void update(){
-        if(this.game.getPlayerScore() >21){
+        if(this.game.getPlayerScore() == 21){
+            this.setText("Black Jack!");
+        }
+        else if(this.game.getPlayerScore() >21){
             this.setText(String.format("%s busted", this.game.getPlayerName()));
         }
         else{

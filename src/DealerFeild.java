@@ -22,7 +22,10 @@ public class DealerFeild extends JTextField{
     }
 
     public void update(){
-        if((this.game.getDealerScore() > 21)){
+        if(this.game.getDealerScore() == 21){
+            this.setText("Black Jack");
+        }
+        else if((this.game.checkDealerBusted())){
             this.setText("Dealer busted");
         }
         else{

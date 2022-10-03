@@ -45,21 +45,22 @@ public class GamePanel extends JPanel{
         game.updateDealerScore();
         game.updatePlayerScore();
         this.add(centerFeild);
-        if(game.getPlayerScore() == 21){
-            playerFeild.setText(String.format("Black Jack!", game.getPlayerName()));
-            dealerFeild.update();
-            centerFeild.update();
+        // if(game.getPlayerScore() == 21){
+        //     playerFeild.update();
+        //     dealerFeild.update();
+        //     centerFeild.update();
 
-        }
-        else if(game.getDealerScore() == 21){
-            dealerFeild.setText("Black Jack");
-            centerFeild.update();
-        }
-        else{
+        // }
+        // else if(game.getDealerScore() == 21){
+        //     playerFeild.update();
+        //     dealerFeild.update();
+        //     centerFeild.update();
+        // }
+        // else{
             playerFeild.update();
             dealerFeild.update();
             centerFeild.update();
-        }
+        //}
     }
 
     public void paintComponent(java.awt.Graphics g) {

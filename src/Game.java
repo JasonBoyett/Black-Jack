@@ -44,11 +44,16 @@ public class Game {
             this.dealerScore = 0;
             this.playerCheck = false;
             this.dealerCheck = false;
+            checkPlayerBusted();
+            checkDealerBusted();
+            isGameOver();
             populateHands();
             playerHand.add(0,this.gameDeck.drawCard());
             dealerHand.add(0,this.gameDeck.drawCard());
             playerHand.add(1,this.gameDeck.drawCard());
             dealerHand.add(1,this.gameDeck.drawCard());
+            updateDealerScore();
+            updatePlayerScore();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,7 +72,7 @@ public class Game {
     }
 
     public void updateDealerScore() {
-        this.playerScore = 0;
+        this.dealerScore = 0;
         for(int i = 0; i < dealerHand.size(); i++) {
             if((this.dealerHand.get(i).getValue() == 11) && this.dealerScore >10){
                 this.dealerScore ++;
@@ -149,7 +154,10 @@ public class Game {
         if(playerCheck && dealerCheck){
             return true;
         }
-        if((this.playerScore >= 21) || (this.dealerScore >= 21)){
+        else if((this.playerScore >= 21) || (this.dealerScore >= 21)){
+            return true;
+        }
+        else if(this.playerHand.get(4).getValue() != 0){
             return true;
         }
         else if(checkDealerBusted() || checkPlayerBusted()){
@@ -161,12 +169,23 @@ public class Game {
     }
 
     private void populateHands(){
-        this.playerHand= new ArrayList(0);
+        this.playerHand= new ArrayList<Card>(0);
+        this.dealerHand= new ArrayList<Card>(0);
         this.playerHand.add(0,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.playerHand.add(1,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.playerHand.add(2,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.playerHand.add(3,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.playerHand.add(4,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(0,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(1,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(2,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(3,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(4,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(0,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(1,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(2,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(3,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
+        this.dealerHand.add(4,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.dealerHand.add(0,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.dealerHand.add(1,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.dealerHand.add(2,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));

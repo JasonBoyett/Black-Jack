@@ -14,6 +14,7 @@ public class StayButton extends JButton{
     Game game;
     Font font = new FontUIResource(Font.SERIF, CENTER, 20);
     GamePanel panel;
+    int cardsDrawnByDealer;
 
     public StayButton(Game game, GamePanel panel) {
         this.game = game;
@@ -24,6 +25,7 @@ public class StayButton extends JButton{
     }
 
     private void press() {
+            this.cardsDrawnByDealer = this.panel.getHitButton().getCardsDrawnByDealer();
         if (!this.panel.getGame().isGameOver()) {
             this.game.playerChecks();
             panel.getPlayerFeild().update();
@@ -32,8 +34,8 @@ public class StayButton extends JButton{
                 panel.repaint();
             }
             while (this.game.dealerWillHit()) {
-                this.game.getDealerHand().add(this.panel.getHitButton().getCardsDrawnByDealer(),game.getGameDeck().drawCard());
-                this.panel.getHitButton().setCardsDrawnByDealer(this.panel.getHitButton().getCardsDrawnByDealer() + 1);
+                this.game.getDealerHand().add(this.cardsDrawnByDealer,game.getGameDeck().drawCard());
+                this.cardsDrawnByDealer++;
                 this.game.updateDealerScore();
                 this.panel.getCenterFeild().update();
                 panel.repaint();
@@ -42,11 +44,16 @@ public class StayButton extends JButton{
             panel.getDealerFeild().update();
             panel.getCenterFeild().update();
         }
-        else if (this.panel.getGame().isGameOver()){
+        else if (this.panel.getGame().isGameOver()){//reset the state of the GUI
             this.panel.getGame().newGame();
+            this.panel.getHitButton().setCardsDrawnByDealer(2);
+            this.panel.getHitButton().setCardsDrawnByPlayer(2);
             GUI.gamePanel = new GamePanel(this.panel.getGame());
             this.panel.getPlayerFeild().update();
             this.panel.getDealerFeild().update();
+            this.panel.getCenterFeild().update();
+            this.setText("I'll Stay");
+            this.panel.getHitButton().setText("Hit Me!");
             this.panel.repaint();
         }
     }

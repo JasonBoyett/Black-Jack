@@ -33,5 +33,8 @@ public class CenterFeild extends JTextField{
             this.panel.getHitButton().setText("Exit");
             this.panel.getStayButton().setText("Play Again");
         }
+        else if((!this.panel.getGame().playerWon()) && (!this.panel.getGame().isGameOver())){
+            this.setText("");
+        }
     }
 }

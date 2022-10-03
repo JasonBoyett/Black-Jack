@@ -68,4 +68,8 @@ public class HitButton extends JButton{
     public void setCardsDrawnByDealer(int cardsDrawnByDealer){
         this.cardsDrawnByDealer = cardsDrawnByDealer;
     }
+
+    public void setCardsDrawnByPlayer(int number){
+        this.cardsDrawnByPlayer = number;
+    }
 }
