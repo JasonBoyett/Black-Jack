@@ -1,3 +1,10 @@
+package src;
+/*
+ * Jason Boyett - jaboye2448
+ * CIT 4423 01
+ * October 2, 2022
+ * mac OS
+ */
 import javax.swing.ImageIcon;
 
 public class Card{
@@ -6,7 +13,6 @@ public class Card{
     private String type;
     ImageIcon cardFace;
     ImageIcon cardBack;
-
 
     public Card(String suite, int value, String type, ImageIcon cardFace, ImageIcon cardBack) {
         this.cardFace = cardFace;
@@ -43,5 +49,4 @@ public class Card{
     public ImageIcon getCardFace() {
         return cardFace;
     }
-
 }

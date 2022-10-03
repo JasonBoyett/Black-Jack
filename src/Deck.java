@@ -1,19 +1,24 @@
+package src;
+/*
+ * Jason Boyett - jaboye2448
+ * CIT 4423 01
+ * October 2, 2022
+ * mac OS
+ */
 import java.awt.Image;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
-
 import javax.swing.ImageIcon;
 
 public class Deck {
-
     private final int PIXEL_WIDTH = 200;
     private final int PIXEL_HEIGHT = 300;
     private ImageIcon back;
     private ArrayList<Card> cards = new ArrayList<Card>();
 
     Card aceOfSpades = new Card("Spades", 11, "Ace", scaleImageIcon("assets/aceOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
-    Card kingOfSpades = new Card("Spades", 10, "King", scaleImageIcon("assets/kingOfSpades", this.PIXEL_WIDTH, this.PIXEL_WIDTH), this.back);
+    Card kingOfSpades = new Card("Spades", 10, "King", scaleImageIcon("assets/kingOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
     Card queenOfSpades = new Card("Spades", 10, "Queen", scaleImageIcon("assets/queenOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
     Card jackOfSpades = new Card("Spades", 10, "Jack", scaleImageIcon("assets/jackOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
     Card tenOfSpades = new Card("Spades", 10, "Ten", scaleImageIcon("assets/tenOfSpades.png", this.PIXEL_WIDTH, this.PIXEL_HEIGHT), this.back);
@@ -119,7 +124,7 @@ public class Deck {
         this.cards.add(threeOfSpades);
         this.cards.add(twoOfSpades);
         Collections.shuffle(this.cards);
-        }
+    }
 
     public Deck() throws FileNotFoundException{
         this.populateDeck();

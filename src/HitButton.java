@@ -1,5 +1,11 @@
+package src;
+/*
+ * Jason Boyett - jaboye2448
+ * CIT 4423 01
+ * October 2, 2022
+ * mac OS
+ */
 import java.awt.Font;
-
 import javax.swing.JButton;
 import javax.swing.plaf.FontUIResource;
 
@@ -37,18 +43,16 @@ public class HitButton extends JButton{
             this.panel.getCenterFeild().update();
             this.panel.repaint();
             if (game.dealerWillHit()) {
-                this.game.getDealerHand().add(cardsDrawnByPlayer, this.game.getGameDeck().drawCard());
+                this.game.getDealerHand().add(cardsDrawnByDealer, this.game.getGameDeck().drawCard());
+                this.game.getDealerHand().remove(5);
+                this.game.updateDealerScore();
+                cardsDrawnByDealer++;
                 this.panel.getDealerFeild().update();
                 this.panel.getCenterFeild().update();
                 panel.repaint();
             }
         }
-
-
-        else if(this.game.isGameOver() && incramentor == 0){
-            incramentor ++;
-        }
-        else if(this.game.isGameOver() && incramentor != 0){
+        else if(this.game.isGameOver()){
             System.exit(0);
         }
         else{

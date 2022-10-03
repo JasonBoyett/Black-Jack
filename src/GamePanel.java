@@ -1,7 +1,13 @@
+package src;
+/*
+ * Jason Boyett - jaboye2448
+ * CIT 4423 01
+ * October 2, 2022
+ * mac OS
+ */
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.DimensionUIResource;
-
 
 public class GamePanel extends JPanel{
     
@@ -54,8 +60,6 @@ public class GamePanel extends JPanel{
             dealerFeild.update();
             centerFeild.update();
         }
-
-
     }
 
     public void paintComponent(java.awt.Graphics g) {
@@ -110,5 +114,9 @@ public class GamePanel extends JPanel{
 
     public CenterFeild getCenterFeild() {
         return this.centerFeild;
+    }
+
+    public StayButton getStayButton() {
+        return this.stayButton;
     }
 }

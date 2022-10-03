@@ -1,3 +1,10 @@
+package src;
+/*
+ * Jason Boyett - jaboye2448
+ * CIT 4423 01
+ * October 2, 2022
+ * mac OS
+ */
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -11,8 +18,8 @@ public class Game {
     private boolean dealerCheck = false;
     private boolean playerCheck = false;
     private String playerName;
-    private ArrayList<Card> playerHand = new ArrayList<>(5);
-    private ArrayList<Card> dealerHand = new ArrayList<>(5);
+    private ArrayList<Card> playerHand = new ArrayList<>(0);
+    private ArrayList<Card> dealerHand = new ArrayList<>(0);
 
     public Game(String playerName) {
         try {
@@ -24,6 +31,25 @@ public class Game {
             playerHand.add(1,this.gameDeck.drawCard());
             dealerHand.add(1,this.gameDeck.drawCard());
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void newGame() {//this polymorphic constructor is called to start a new game with the same deck
+        try {
+            if(this.gameDeck.getCards().size() < 10){//in case the deck is no longer big enough to support a full game
+                this.gameDeck = new Deck();
+            }
+            this.playerScore = 0;
+            this.dealerScore = 0;
+            this.playerCheck = false;
+            this.dealerCheck = false;
+            populateHands();
+            playerHand.add(0,this.gameDeck.drawCard());
+            dealerHand.add(0,this.gameDeck.drawCard());
+            playerHand.add(1,this.gameDeck.drawCard());
+            dealerHand.add(1,this.gameDeck.drawCard());
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -51,7 +77,6 @@ public class Game {
             }
         }
     }
-
 
     public boolean checkPlayerBusted(){
         if(playerScore > 21){
@@ -89,6 +114,12 @@ public class Game {
         if(this.checkPlayerBusted()){
             return false;
         }
+        else if(this.playerScore == 21){
+            return true;
+        }
+        else if(this.dealerScore == 21){
+            return false;
+        }
         else if((!this.checkDealerBusted()) && (this.dealerHand.get(4).getValue() != 0)){
             return false;
         }
@@ -118,6 +149,9 @@ public class Game {
         if(playerCheck && dealerCheck){
             return true;
         }
+        if((this.playerScore >= 21) || (this.dealerScore >= 21)){
+            return true;
+        }
         else if(checkDealerBusted() || checkPlayerBusted()){
             return true;
         }
@@ -127,6 +161,7 @@ public class Game {
     }
 
     private void populateHands(){
+        this.playerHand= new ArrayList(0);
         this.playerHand.add(0,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.playerHand.add(1,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
         this.playerHand.add(2,new Card("Joker", 0, "Joker", Deck.scaleImageIcon("assets/joker.png",1,1), Deck.scaleImageIcon("assets/cardBack.png", 200, 300)));
